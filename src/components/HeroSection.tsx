@@ -3,6 +3,13 @@ import { ArrowRight, Code2, Smartphone } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -38,11 +45,20 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="group gap-2 px-8">
+            <Button 
+              size="lg" 
+              className="group gap-2 px-8"
+              onClick={() => scrollToSection("contact")}
+            >
               Start Your Project
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="gap-2 px-8">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="gap-2 px-8"
+              onClick={() => scrollToSection("portfolio")}
+            >
               View My Work
             </Button>
           </div>
