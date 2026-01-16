@@ -1,4 +1,6 @@
-import { Star, Quote } from "lucide-react";
+import { useState } from "react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
@@ -22,9 +24,42 @@ const testimonials = [
     rating: 5,
     avatar: "ER",
   },
+  {
+    name: "David Thompson",
+    role: "CTO, FinanceHub",
+    content: "Exceptional technical skills combined with great communication. They transformed our outdated system into a modern, scalable platform.",
+    rating: 5,
+    avatar: "DT",
+  },
+  {
+    name: "Lisa Wang",
+    role: "Marketing Director, StyleCo",
+    content: "The website they created for us increased our conversion rate by 40%. Their understanding of UX and branding is outstanding.",
+    rating: 5,
+    avatar: "LW",
+  },
+  {
+    name: "James Parker",
+    role: "Founder, EduLearn",
+    content: "Our learning management system was delivered on time and within budget. The ongoing support has been incredible. A true professional!",
+    rating: 5,
+    avatar: "JP",
+  },
 ];
 
 const TestimonialsSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerView = 3;
+  const maxIndex = Math.ceil(testimonials.length / itemsPerView) - 1;
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+  };
+
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-muted/30">
       <div className="container px-4">
@@ -38,44 +73,97 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+        {/* Testimonials Carousel */}
+        <div className="relative">
+          <div className="overflow-hidden">
             <div 
-              key={index} 
-              className="relative bg-card rounded-2xl p-8 border border-border hover:shadow-lg transition-all duration-300"
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {/* Quote Icon */}
-              <div className="absolute -top-4 left-8">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                  <Quote className="w-4 h-4 text-primary-foreground" />
-                </div>
-              </div>
+              {/* Group testimonials into slides */}
+              {Array.from({ length: Math.ceil(testimonials.length / itemsPerView) }).map((_, slideIndex) => (
+                <div 
+                  key={slideIndex} 
+                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1"
+                >
+                  {testimonials
+                    .slice(slideIndex * itemsPerView, (slideIndex + 1) * itemsPerView)
+                    .map((testimonial, index) => (
+                      <div 
+                        key={index} 
+                        className="relative bg-card rounded-2xl p-8 border border-border hover:shadow-lg transition-all duration-300"
+                      >
+                        {/* Quote Icon */}
+                        <div className="absolute -top-4 left-8">
+                          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                            <Quote className="w-4 h-4 text-primary-foreground" />
+                          </div>
+                        </div>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-4 pt-2">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
-                ))}
-              </div>
+                        {/* Stars */}
+                        <div className="flex gap-1 mb-4 pt-2">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                          ))}
+                        </div>
 
-              {/* Content */}
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                "{testimonial.content}"
-              </p>
+                        {/* Content */}
+                        <p className="text-muted-foreground mb-6 leading-relaxed">
+                          "{testimonial.content}"
+                        </p>
 
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-semibold">
-                  {testimonial.avatar}
+                        {/* Author */}
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-semibold">
+                            {testimonial.avatar}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-card-foreground">{testimonial.name}</p>
+                            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                 </div>
-                <div>
-                  <p className="font-semibold text-card-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex justify-center items-center gap-4 mt-10">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handlePrev}
+              className="rounded-full w-12 h-12 transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+
+            {/* Dots Indicator */}
+            <div className="flex gap-2">
+              {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    currentIndex === index 
+                      ? "bg-primary w-8" 
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleNext}
+              className="rounded-full w-12 h-12 transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
