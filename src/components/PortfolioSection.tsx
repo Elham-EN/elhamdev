@@ -1,4 +1,5 @@
-import { ExternalLink, Github } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -24,9 +25,33 @@ const projects = [
     tags: ["Next.js", "TypeScript", "Chart.js"],
     type: "Web App",
   },
+  {
+    title: "Food Delivery App",
+    description: "Mobile-first food ordering platform with real-time order tracking and restaurant management system.",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop",
+    tags: ["React Native", "Node.js", "MongoDB", "Socket.io"],
+    type: "Mobile App",
+  },
+  {
+    title: "Real Estate Platform",
+    description: "Property listing and management platform with virtual tours, booking system, and agent dashboard.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
+    tags: ["React", "Python", "Django", "AWS"],
+    type: "Web App",
+  },
+  {
+    title: "Healthcare Portal",
+    description: "Patient management system with appointment scheduling, telemedicine integration, and medical records.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
+    tags: ["Vue.js", "Express", "PostgreSQL", "HIPAA"],
+    type: "Web App",
+  },
 ];
 
 const PortfolioSection = () => {
+  const [showAll, setShowAll] = useState(false);
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+
   return (
     <section id="portfolio" className="py-20 md:py-32">
       <div className="container px-4">
@@ -42,10 +67,11 @@ const PortfolioSection = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <div 
               key={index} 
-              className="group relative bg-card rounded-xl overflow-hidden border border-border hover:shadow-xl transition-all duration-500"
+              className="group relative bg-card rounded-xl overflow-hidden border border-border hover:shadow-xl transition-all duration-500 animate-fade-in"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image */}
               <div className="relative overflow-hidden aspect-[3/2]">
@@ -98,8 +124,14 @@ const PortfolioSection = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            View All Projects
+          <Button 
+            variant="outline" 
+            size="lg"
+            onClick={() => setShowAll(!showAll)}
+            className="gap-2"
+          >
+            {showAll ? "Show Less" : "View All Projects"}
+            {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </Button>
         </div>
       </div>
