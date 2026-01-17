@@ -61,14 +61,17 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 md:py-32 bg-muted/30">
+    <section id="testimonials" className="py-20 md:py-32 bg-muted/20">
       <div className="container px-4">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+          <p className="text-primary font-semibold uppercase tracking-wider mb-4">
+            Client Reviews
+          </p>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground font-serif uppercase tracking-tight">
             What Clients Say
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground">
             I've had the privilege of working with amazing clients. Here's what they have to say.
           </p>
         </div>
@@ -76,56 +79,60 @@ const TestimonialsSection = () => {
         {/* Testimonials Carousel */}
         <div className="relative">
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {/* Group testimonials into slides */}
-              {Array.from({ length: Math.ceil(testimonials.length / itemsPerView) }).map((_, slideIndex) => (
-                <div 
-                  key={slideIndex} 
-                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1"
-                >
-                  {testimonials
-                    .slice(slideIndex * itemsPerView, (slideIndex + 1) * itemsPerView)
-                    .map((testimonial, index) => (
-                      <div 
-                        key={index} 
-                        className="relative bg-card rounded-2xl p-8 border border-border hover:shadow-lg transition-all duration-300"
-                      >
-                        {/* Quote Icon */}
-                        <div className="absolute -top-4 left-8">
-                          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                            <Quote className="w-4 h-4 text-primary-foreground" />
+              {Array.from({ length: Math.ceil(testimonials.length / itemsPerView) }).map(
+                (_, slideIndex) => (
+                  <div
+                    key={slideIndex}
+                    className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1"
+                  >
+                    {testimonials
+                      .slice(slideIndex * itemsPerView, (slideIndex + 1) * itemsPerView)
+                      .map((testimonial, index) => (
+                        <div
+                          key={index}
+                          className="relative bg-card rounded-xl p-8 border border-border hover:shadow-lg transition-all duration-300"
+                        >
+                          {/* Quote Icon */}
+                          <div className="absolute -top-4 left-8">
+                            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                              <Quote className="w-5 h-5 text-primary-foreground" />
+                            </div>
+                          </div>
+
+                          {/* Stars */}
+                          <div className="flex gap-1 mb-4 pt-4">
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                            ))}
+                          </div>
+
+                          {/* Content */}
+                          <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
+                            "{testimonial.content}"
+                          </p>
+
+                          {/* Author */}
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-semibold">
+                              {testimonial.avatar}
+                            </div>
+                            <div>
+                              <p className="font-semibold text-card-foreground">
+                                {testimonial.name}
+                              </p>
+                              <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                            </div>
                           </div>
                         </div>
-
-                        {/* Stars */}
-                        <div className="flex gap-1 mb-4 pt-2">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-accent text-accent" />
-                          ))}
-                        </div>
-
-                        {/* Content */}
-                        <p className="text-muted-foreground mb-6 leading-relaxed">
-                          "{testimonial.content}"
-                        </p>
-
-                        {/* Author */}
-                        <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-semibold">
-                            {testimonial.avatar}
-                          </div>
-                          <div>
-                            <p className="font-semibold text-card-foreground">{testimonial.name}</p>
-                            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                </div>
-              ))}
+                      ))}
+                  </div>
+                )
+              )}
             </div>
           </div>
 
@@ -147,8 +154,8 @@ const TestimonialsSection = () => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentIndex === index 
-                      ? "bg-primary w-8" 
+                    currentIndex === index
+                      ? "bg-primary w-8"
                       : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                   }`}
                 />
