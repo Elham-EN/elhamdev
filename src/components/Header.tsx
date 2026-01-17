@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -53,8 +54,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Theme Toggle & CTA Button */}
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Button asChild className="rounded-none px-6 font-semibold">
               <a href="#contact">CONTACT</a>
             </Button>
@@ -83,6 +85,10 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
+              <div className="flex items-center gap-3 pt-2">
+                <ThemeToggle />
+                <span className="text-sm text-muted-foreground">Toggle theme</span>
+              </div>
               <Button asChild className="w-full mt-2 rounded-none">
                 <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
                   CONTACT
