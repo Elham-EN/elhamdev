@@ -41,8 +41,8 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-8 text-foreground leading-tight">
-            Build stunning{" "}
-            <span className="relative inline-block">
+            Build stunning
+            <span className="relative block my-2">
               <span
                 className={`relative z-10 transition-all duration-300 ${
                   isAnimating 
@@ -52,8 +52,8 @@ const HeroSection = () => {
               >
                 {rotatingTexts[currentIndex]}
               </span>
-              <span className="absolute inset-0 -inset-x-2 -inset-y-1 bg-primary/30 dark:bg-primary/40 rounded-md -z-0" />
-            </span>{" "}
+              <span className="absolute inset-0 -inset-x-3 -inset-y-1 bg-primary/30 dark:bg-primary/40 rounded-md -z-0" />
+            </span>
             with professional expertise
           </h1>
 
