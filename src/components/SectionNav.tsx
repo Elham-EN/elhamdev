@@ -41,42 +41,42 @@ const SectionNav = () => {
   };
 
   return (
-    <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col items-end gap-3">
-      <div className="bg-background/20 backdrop-blur-md border border-border/30 rounded-full py-4 px-3 shadow-lg">
-        <ul className="flex flex-col gap-4">
+    <nav className="fixed right-4 md:right-6 top-1/2 -translate-y-1/2 z-[100] hidden lg:block">
+      <div className="bg-card/80 backdrop-blur-lg border border-border/50 rounded-2xl py-4 px-4 shadow-xl">
+        <ul className="flex flex-col gap-2">
           {sections.map((section) => (
             <li key={section.id}>
               <button
                 onClick={() => scrollToSection(section.id)}
-                className="group flex items-center gap-3 relative"
+                className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg transition-all duration-300 group ${
+                  activeSection === section.id
+                    ? "bg-primary/10"
+                    : "hover:bg-muted/50"
+                }`}
               >
-                {/* Label - appears on hover */}
-                <span
-                  className={`text-xs font-medium whitespace-nowrap transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 ${
-                    activeSection === section.id
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {section.label}
-                </span>
-
                 {/* Dot indicator */}
-                <span
-                  className={`relative flex items-center justify-center w-3 h-3 transition-all duration-300 ${
-                    activeSection === section.id ? "scale-100" : "scale-75 group-hover:scale-100"
-                  }`}
-                >
+                <span className="relative flex items-center justify-center w-2.5 h-2.5 flex-shrink-0">
                   <span
                     className={`absolute inset-0 rounded-full transition-all duration-300 ${
                       activeSection === section.id
-                        ? "bg-primary shadow-[0_0_10px_hsl(var(--primary)/0.5)]"
-                        : "bg-muted-foreground/40 group-hover:bg-muted-foreground/60"
+                        ? "bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.6)]"
+                        : "bg-muted-foreground/40 group-hover:bg-muted-foreground/70"
                     }`}
                   />
                   {activeSection === section.id && (
-                    <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
+                    <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-40" />
                   )}
+                </span>
+
+                {/* Label - always visible */}
+                <span
+                  className={`text-sm font-medium whitespace-nowrap transition-colors duration-300 ${
+                    activeSection === section.id
+                      ? "text-primary"
+                      : "text-muted-foreground group-hover:text-foreground"
+                  }`}
+                >
+                  {section.label}
                 </span>
               </button>
             </li>
