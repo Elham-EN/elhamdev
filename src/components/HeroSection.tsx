@@ -1,7 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { Code2, Smartphone, Database, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
+
+const rotatingTexts = [
+  "Website Development",
+  "Web Applications",
+  "App Development",
+  "Mobile Development",
+];
 
 const HeroSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % rotatingTexts.length);
+        setIsAnimating(false);
+      }, 300);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -9,105 +31,50 @@ const HeroSection = () => {
     }
   };
 
-  const servicePills = [
-    "Business website",
-    "E-commerce",
-    "Web Applications",
-    "Mobile Apps",
-    "and much more...",
-  ];
-
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-background pt-20">
-      <div className="container px-4 py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="order-2 lg:order-1">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-foreground font-serif">
-              Elham Dev
-            </h1>
-            
-            <p className="text-lg md:text-xl font-semibold text-primary mb-6 uppercase tracking-wider">
-              Freelance Software Developer
-            </p>
-
-            <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-xl leading-relaxed">
-              Empower your business with state-of-the-art digital solutions, such as 
-              websites, web applications, and digital marketing, with a focus on your specific 
-              needs, including web design, web development, and more.
-            </p>
-
-            <p className="text-sm text-muted-foreground mb-4">
-              Also custom-made web applications such as:
-            </p>
-
-            {/* Service Pills */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {servicePills.map((pill, index) => (
-                <span
-                  key={index}
-                  className="px-4 py-2 text-sm border border-border rounded-sm bg-background hover:border-primary transition-colors cursor-default"
-                >
-                  {pill}
-                </span>
-              ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="rounded-none px-8 font-semibold uppercase tracking-wide"
-                onClick={() => scrollToSection("contact")}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20">
+      {/* Decorative Shapes */}
+      <div className="absolute left-0 top-1/4 w-32 md:w-48 lg:w-64 h-64 md:h-80 lg:h-96 bg-accent/20 dark:bg-accent/10 transform -skew-x-12 -translate-x-1/2" />
+      <div className="absolute right-0 top-1/3 w-48 md:w-64 lg:w-80 h-48 md:h-64 lg:h-80 bg-accent/20 dark:bg-accent/10 rounded-full translate-x-1/3" />
+      
+      <div className="container px-4 py-16 md:py-24 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-8 text-foreground leading-tight">
+            Build stunning{" "}
+            <span className="relative inline-block">
+              <span
+                className={`relative z-10 transition-all duration-300 ${
+                  isAnimating 
+                    ? "opacity-0 transform translate-y-4" 
+                    : "opacity-100 transform translate-y-0"
+                }`}
               >
-                Contact
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-none px-8 font-semibold uppercase tracking-wide border-2 border-foreground text-foreground hover:bg-foreground hover:text-background"
-                onClick={() => scrollToSection("portfolio")}
-              >
-                Read More
-              </Button>
-            </div>
-          </div>
+                {rotatingTexts[currentIndex]}
+              </span>
+              <span className="absolute inset-0 -inset-x-2 -inset-y-1 bg-primary/30 dark:bg-primary/40 rounded-md -z-0" />
+            </span>{" "}
+            with professional expertise
+          </h1>
 
-          {/* Right Illustration */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md">
-              {/* Developer Illustration */}
-              <div className="relative">
-                {/* Window Frame */}
-                <div className="bg-card border border-border rounded-lg p-4 shadow-lg">
-                  <div className="flex gap-2 mb-4">
-                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                    <div className="w-3 h-3 rounded-full bg-accent/60" />
-                    <div className="w-3 h-3 rounded-full bg-primary/60" />
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-3 bg-muted rounded w-3/4" />
-                    <div className="h-3 bg-primary/20 rounded w-1/2" />
-                    <div className="h-3 bg-muted rounded w-5/6" />
-                    <div className="h-3 bg-accent/20 rounded w-2/3" />
-                  </div>
-                </div>
-                
-                {/* Floating Elements */}
-                <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg">
-                  <Code2 className="w-8 h-8" />
-                </div>
-                
-                <div className="absolute -top-4 -left-4 bg-card border border-border p-3 rounded-lg shadow-md">
-                  <Database className="w-6 h-6 text-accent" />
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Subtitle */}
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+            Expert freelance developer crafting high-performing digital solutions 
+            that help your business stand out and achieve extraordinary results.
+          </p>
+
+          {/* CTA Button */}
+          <Button
+            size="lg"
+            className="rounded-full px-10 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={() => scrollToSection("contact")}
+          >
+            Get Started
+          </Button>
         </div>
       </div>
 
-      {/* Social Icons Bar */}
+      {/* Bottom Social Icons */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-8">
         <div className="w-16 h-px bg-border" />
         <div className="flex gap-4">
