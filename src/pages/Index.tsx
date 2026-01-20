@@ -6,6 +6,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import SectionNav from "@/components/SectionNav";
+import ChatWidget from "@/components/ChatWidget";
 
 const Index = () => {
   return (
@@ -30,6 +31,7 @@ const Index = () => {
         </section>
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 };
