@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ExternalLink, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ExternalLink, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -49,8 +49,7 @@ const projects = [
 ];
 
 const PortfolioSection = () => {
-  const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+  const displayedProjects = projects.slice(0, 3);
 
   return (
     <section id="portfolio" className="py-20 md:py-32 relative overflow-hidden">
@@ -145,11 +144,13 @@ const PortfolioSection = () => {
           <Button
             variant="outline"
             size="lg"
-            onClick={() => setShowAll(!showAll)}
+            asChild
             className="gap-2 rounded-none border-2 border-foreground text-foreground hover:bg-foreground hover:text-background uppercase tracking-wide"
           >
-            {showAll ? "Show Less" : "View All Projects"}
-            {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            <Link to="/projects">
+              View All Projects
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </Button>
         </div>
       </div>
