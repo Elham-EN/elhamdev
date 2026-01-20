@@ -72,7 +72,7 @@ const ChatWidget = () => {
       {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group ${
+        className={`fixed bottom-6 right-6 z-[110] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group ${
           isOpen ? "scale-0 opacity-0" : "scale-100 opacity-100"
         }`}
         aria-label="Open chat"
@@ -84,7 +84,7 @@ const ChatWidget = () => {
 
       {/* Chat Window */}
       <div
-        className={`fixed bottom-6 right-6 z-[95] w-[360px] max-w-[calc(100vw-2rem)] transition-all duration-300 origin-bottom-right ${
+        className={`fixed bottom-6 right-6 z-[110] w-[360px] max-w-[calc(100vw-2rem)] transition-all duration-300 origin-bottom-right ${
           isOpen
             ? "scale-100 opacity-100 translate-y-0"
             : "scale-95 opacity-0 translate-y-4 pointer-events-none"
