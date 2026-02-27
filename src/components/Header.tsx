@@ -38,6 +38,7 @@ const Header = () => {
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center border-2 border-primary">
               <span className="text-primary-foreground font-bold text-lg">C</span>
             </div>
+            <span className="font-bold text-foreground text-lg">CodeHelm</span>
           </a>
 
           {/* Desktop Navigation - Centered */}
