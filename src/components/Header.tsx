@@ -36,7 +36,7 @@ const Header = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center border-2 border-primary">
-              <span className="text-primary-foreground font-bold text-lg">E</span>
+              <span className="text-primary-foreground font-bold text-lg">C</span>
             </div>
           </a>
 

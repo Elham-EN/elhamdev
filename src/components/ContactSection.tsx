@@ -116,7 +116,7 @@ const ContactSection = () => {
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-foreground">hello@elhamdev.com</span>
+                  <span className="text-foreground">hello@codehelm.com</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -152,7 +152,7 @@ const ContactSection = () => {
             className="rounded-none border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary uppercase tracking-wide"
             asChild
           >
-            <a href="mailto:hello@elhamdev.com">Contact Us</a>
+            <a href="mailto:hello@codehelm.com">Contact Us</a>
           </Button>
         </div>
       </div>
