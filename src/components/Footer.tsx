@@ -107,14 +107,14 @@ const Footer = () => {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">E</span>
+              <span className="text-primary-foreground font-bold">C</span>
             </div>
-            <span className="font-bold text-foreground">Elham Dev</span>
+            <span className="font-bold text-foreground">CodeHelm</span>
           </div>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {currentYear} Elham Dev. Made with
+            © {currentYear} CodeHelm. Made with
             <Heart className="w-4 h-4 text-primary fill-primary" />
           </p>
         </div>
