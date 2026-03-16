@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import logoImg from "@/assets/codehelm-logo.png";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -34,11 +35,8 @@ const Header = () => {
       <div className="container px-4">
         <div className="h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center border-2 border-primary">
-              <span className="text-primary-foreground font-bold text-lg">C</span>
-            </div>
-            <span className="font-bold text-foreground text-lg">CodeHelm</span>
+          <a href="#" className="flex items-center">
+            <img src={logoImg} alt="Codehelm" className="h-9 md:h-10 w-auto" />
           </a>
 
           {/* Desktop Navigation - Centered */}
@@ -58,7 +56,7 @@ const Header = () => {
           {/* Theme Toggle & CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <Button asChild className="rounded-none px-6 font-semibold">
+            <Button asChild className="rounded-none px-6 font-bold">
               <a href="#contact">CONTACT</a>
             </Button>
           </div>
@@ -90,7 +88,7 @@ const Header = () => {
                 <ThemeToggle />
                 <span className="text-sm text-muted-foreground">Toggle theme</span>
               </div>
-              <Button asChild className="w-full mt-2 rounded-none">
+              <Button asChild className="w-full mt-2 rounded-none font-bold">
                 <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
                   CONTACT
                 </a>

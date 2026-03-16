@@ -1,4 +1,5 @@
 import { Heart, Home, Folder, BookOpen, Mail, Facebook, Instagram, Linkedin, Github } from "lucide-react";
+import logoImg from "@/assets/codehelm-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -105,16 +106,13 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">C</span>
-            </div>
-            <span className="font-bold text-foreground">CodeHelm</span>
+          <div className="flex items-center">
+            <img src={logoImg} alt="Codehelm" className="h-8 w-auto" />
           </div>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {currentYear} CodeHelm. Made with
+            © {currentYear} Codehelm. Made with
             <Heart className="w-4 h-4 text-primary fill-primary" />
           </p>
         </div>
