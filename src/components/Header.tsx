@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import logoImg from "@/assets/codehelm-logo.png";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -36,7 +35,9 @@ const Header = () => {
         <div className="h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center">
-            <img src={logoImg} alt="Codehelm" className="h-9 md:h-10 w-auto" />
+            <span className="bg-primary text-primary-foreground font-logo font-bold text-xl px-4 py-1.5 rounded-lg">
+              Codehelm
+            </span>
           </a>
 
           {/* Desktop Navigation - Centered */}
