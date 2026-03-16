@@ -86,9 +86,9 @@ export default {
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
 		fontFamily: {
+			logo: ['Montserrat', 'sans-serif'],
 			sans: [
 				'Space Grotesk',
-				'Inter',
 				'system-ui',
 				'sans-serif'
 			],
