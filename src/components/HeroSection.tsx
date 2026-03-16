@@ -52,7 +52,7 @@ const HeroSection = () => {
               >
                 {rotatingTexts[currentIndex]}
               </span>
-              <span className="absolute inset-0 -inset-x-3 -inset-y-1 bg-primary/30 dark:bg-primary/40 rounded-md -z-0" />
+              <span className="absolute inset-0 -inset-x-3 -inset-y-1 bg-primary/40 dark:bg-primary/30 rounded-md -z-0" />
             </span>
             with professional expertise
           </h1>
