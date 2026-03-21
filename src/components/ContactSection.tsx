@@ -136,26 +136,6 @@ const ContactSection = () => {
         </div>
       </div>
 
-      {/* Bottom CTA Section on Primary Background */}
-      <div className="relative z-10 bg-primary py-16">
-        <div className="container px-4 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-primary-foreground font-serif uppercase">
-            Contact
-          </h2>
-          <p className="text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Do you have any questions or would you like to request a free quote for a website, 
-            logo, or anything else? Feel free to contact me, and I'll be happy to assist you.
-          </p>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-none border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary uppercase tracking-wide"
-            asChild
-          >
-            <a href="mailto:hello@codehelm.com">Contact Us</a>
-          </Button>
-        </div>
-      </div>
     </section>
   );
 };
