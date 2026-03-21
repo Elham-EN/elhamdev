@@ -113,20 +113,20 @@ const ContactSection = () => {
               {/* Contact Info */}
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <span className="text-foreground">hello@codehelm.com</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <span className="text-foreground">Available Worldwide (Remote)</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <span className="text-foreground">Response within 24 hours</span>
                 </div>
