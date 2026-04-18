@@ -7,8 +7,6 @@ import {
   Target,
   Heart,
   Rocket,
-  Users,
-  Award,
   Lightbulb,
   HandshakeIcon,
   ShieldCheck,
@@ -17,45 +15,39 @@ import {
   Code2,
   Globe,
   Zap,
+  User,
 } from "lucide-react";
-
-const stats = [
-  { value: "50+", label: "Projects Shipped", icon: Rocket },
-  { value: "30+", label: "Happy Clients", icon: Users },
-  { value: "5+", label: "Years of Craft", icon: Award },
-  { value: "12+", label: "Countries Served", icon: Globe },
-];
 
 const values = [
   {
     icon: Heart,
     title: "Client-First Mindset",
     description:
-      "Your success is our success. We listen deeply, communicate honestly, and treat every project as if it were our own.",
+      "Your success is mine. I listen deeply, communicate honestly, and treat every project as if it were my own.",
   },
   {
     icon: ShieldCheck,
     title: "Built on Trust",
     description:
-      "Transparent pricing, honest timelines, and zero hidden surprises. We say what we'll do — and we do it.",
+      "Transparent pricing, honest timelines, and zero hidden surprises. I say what I'll do — and I do it.",
   },
   {
     icon: Lightbulb,
     title: "Always Learning",
     description:
-      "Tech moves fast. We stay sharp on the latest tools, frameworks, and best practices so your product never falls behind.",
+      "Tech moves fast. I stay sharp on the latest tools, frameworks, and best practices so your product never falls behind.",
   },
   {
     icon: Zap,
     title: "Ship with Quality",
     description:
-      "Speed matters — but never at the expense of stability, security, or polish. We move fast and build right.",
+      "Speed matters — but never at the expense of stability, security, or polish. I move fast and build right.",
   },
   {
     icon: HandshakeIcon,
     title: "Long-Term Partnership",
     description:
-      "Launch is just the beginning. We stick around to support, iterate, and grow alongside your business.",
+      "Launch is just the beginning. I stick around to support, iterate, and grow alongside your business.",
   },
   {
     icon: Sparkles,
