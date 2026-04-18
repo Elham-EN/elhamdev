@@ -82,13 +82,13 @@ const About = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Compass className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Our story</span>
+              <span className="text-sm font-medium text-foreground">My story</span>
             </div>
             <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
               About <span className="text-primary">Codehelm</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              We're a small studio with a big mission — to help founders, startups, and brands turn
+              I'm an independent developer and builder helping founders, startups, and brands turn
               bold ideas into shipped, scalable, beautifully crafted software.
             </p>
           </div>
