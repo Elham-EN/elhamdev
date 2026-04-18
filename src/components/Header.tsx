@@ -86,16 +86,23 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border bg-background">
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`text-sm font-medium transition-colors py-2 border-l-2 pl-3 ${
+                      isActive
+                        ? "text-foreground border-primary"
+                        : "text-muted-foreground hover:text-foreground border-transparent"
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <div className="flex items-center gap-3 pt-2">
                 <ThemeToggle />
                 <span className="text-sm text-muted-foreground">Toggle theme</span>
