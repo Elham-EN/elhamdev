@@ -22,6 +22,12 @@ import {
   FileText,
   Sparkles,
   Boxes,
+  Link2,
+  BookOpenCheck,
+  Network,
+  Gem,
+  Brain,
+  TerminalSquare,
 } from "lucide-react";
 
 type Tech = {
@@ -178,6 +184,48 @@ const groups: TechGroup[] = [
         icon: Boxes,
         description:
           "Open-source Node.js headless CMS — quick to set up, easy to self-host, and customizable for any content workflow.",
+      },
+    ],
+  },
+  {
+    title: "AI",
+    subtitle: "Modern AI tooling and models we use to ship intelligent features and accelerate development.",
+    items: [
+      {
+        name: "LangChain",
+        icon: Link2,
+        description:
+          "Framework for orchestrating LLMs with tools, memory, and chains — perfect for building agents and complex AI workflows.",
+      },
+      {
+        name: "RAG",
+        icon: BookOpenCheck,
+        description:
+          "Retrieval-Augmented Generation grounds AI responses in your own data, delivering accurate, context-aware answers with citations.",
+      },
+      {
+        name: "Vector Databases",
+        icon: Network,
+        description:
+          "Store and search embeddings at scale (Pinecone, Supabase pgvector, Weaviate) to power semantic search and RAG pipelines.",
+      },
+      {
+        name: "Gemini Model",
+        icon: Gem,
+        description:
+          "Google's multimodal Gemini models — strong reasoning, long context windows, and native image and video understanding.",
+      },
+      {
+        name: "OpenAI Model",
+        icon: Brain,
+        description:
+          "GPT models for chat, reasoning, vision, and function-calling — the most battle-tested LLMs for production AI features.",
+      },
+      {
+        name: "Claude Code",
+        icon: TerminalSquare,
+        description:
+          "Anthropic's agentic coding tool that plugs into our workflow for faster, higher-quality development and automated refactors.",
       },
     ],
   },
