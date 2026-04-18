@@ -1,4 +1,4 @@
-import { Heart, Home, Folder, BookOpen, Mail, Facebook, Instagram, Linkedin, Github } from "lucide-react";
+import { Heart, User, Briefcase, Folder, Cpu, BookOpen, Facebook, Instagram, Linkedin, Github } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,10 +11,11 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: "Home", href: "#", icon: Home },
-    { label: "Projects", href: "#portfolio", icon: Folder },
-    { label: "Services", href: "#services", icon: BookOpen },
-    { label: "Contact", href: "#contact", icon: Mail },
+    { label: "About", href: "/about", icon: User },
+    { label: "Services", href: "/services", icon: Briefcase },
+    { label: "Projects", href: "/projects", icon: Folder },
+    { label: "Technologies", href: "/technologies", icon: Cpu },
+    { label: "Blogs", href: "/blogs", icon: BookOpen },
   ];
 
   return (
