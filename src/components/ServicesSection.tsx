@@ -1,35 +1,62 @@
-import { Code2, Palette, Search, ShoppingCart, Settings, MonitorSmartphone } from "lucide-react";
+import { Smartphone, Globe, Rocket, Server, Brain } from "lucide-react";
 
 const services = [
   {
-    icon: MonitorSmartphone,
-    title: "Web Design",
-    description: "Beautiful, modern, and user-friendly website designs that leave a lasting impression on your visitors and perfectly represent your brand.",
+    icon: Smartphone,
+    title: "Mobile App Development",
+    description:
+      "Native-quality iOS & Android apps from a single codebase using React Native + Expo. Figma to working app, with App Store and Play Store deployment included.",
+    features: [
+      "Single codebase (React Native + Expo) for iOS & Android",
+      "App Store & Play Store deployment",
+      "Convert Figma UI/UX into a working app",
+    ],
   },
   {
-    icon: Code2,
-    title: "Web Development",
-    description: "Custom web solutions built with the latest technologies to ensure your website is fast, secure, and scalable.",
+    icon: Globe,
+    title: "Web App Development & Web Design",
+    description:
+      "From SaaS platforms and internal tools to e-commerce stores and high-converting landing pages — fully custom, responsive, and SEO-ready.",
+    features: [
+      "SaaS apps, internal business tools & web applications",
+      "E-commerce & online stores",
+      "SEO-optimized landing pages that convert visitors into customers",
+      "Custom web application development",
+      "Animations & responsive design",
+    ],
   },
   {
-    icon: Search,
-    title: "SEO Optimization",
-    description: "Improve your visibility in search engines and attract more organic traffic with comprehensive SEO strategies.",
+    icon: Rocket,
+    title: "MVP to Production",
+    description:
+      "Turn vibe-coded MVPs (built with Lovable, Bolt, v0, etc.) into production-grade applications powered by Next.js + Supabase — secure, scalable, and ready to ship.",
+    features: [
+      "Refactor Lovable / Bolt / v0 MVPs",
+      "Production stack: Next.js + Supabase",
+      "Auth, RLS, performance & scalability hardening",
+    ],
   },
   {
-    icon: Palette,
-    title: "Graphic Design",
-    description: "Striking visual and branding elements that enhance your website's appeal and strengthen your brand identity.",
+    icon: Server,
+    title: "Backend & API Development",
+    description:
+      "Robust backends, REST & GraphQL APIs, third-party integrations, and database architecture designed to scale with your product.",
+    features: [
+      "REST & GraphQL APIs",
+      "Database design & integrations",
+      "Authentication, payments & webhooks",
+    ],
   },
   {
-    icon: ShoppingCart,
-    title: "E-Commerce",
-    description: "Full-fledged webshops that make selling your products online easy, secure, and profitable.",
-  },
-  {
-    icon: Settings,
-    title: "Automation Systems",
-    description: "Custom automation solutions to streamline your business processes, save time, and reduce operational costs.",
+    icon: Brain,
+    title: "AI Integration",
+    description:
+      "Bring intelligence into your product with LangChain, Gemini, and OpenAI — chatbots, RAG systems, AI agents, and custom AI-powered workflows.",
+    features: [
+      "LangChain pipelines & AI agents",
+      "Gemini & OpenAI integrations",
+      "RAG, embeddings & vector databases",
+    ],
   },
 ];
 
@@ -40,19 +67,18 @@ const ServicesSection = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-primary font-semibold uppercase tracking-wider mb-4">
-            What I Offer
+            What We Offer
           </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground font-serif uppercase tracking-tight">
-            My Services
+            Our Services
           </h2>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-            Custom digital solutions that perfectly match your business needs. From elegant designs to advanced development. 
-            Whether you're looking for a <span className="font-semibold text-foreground">freelance web designer</span>, 
-            an <span className="font-semibold text-foreground">affordable web designer</span>, 
-            or an experienced <span className="font-semibold text-foreground">software developer</span>, you've come to the right place.
-          </p>
-          <p className="text-sm text-muted-foreground mt-4">
-            In short: digital solutions that save time and costs and increase your revenue.
+            End-to-end product development — from{" "}
+            <span className="font-semibold text-foreground">mobile apps</span> and{" "}
+            <span className="font-semibold text-foreground">web platforms</span> to{" "}
+            <span className="font-semibold text-foreground">AI-powered systems</span>.
+            We design, build, and ship production-grade software that helps your
+            business grow.
           </p>
         </div>
 
@@ -61,7 +87,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative bg-card rounded-xl p-8 border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group relative bg-card rounded-xl p-8 border border-border hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
             >
               {/* Icon */}
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
@@ -72,9 +98,22 @@ const ServicesSection = () => {
               <h3 className="text-xl font-bold mb-3 text-card-foreground uppercase tracking-wide">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                 {service.description}
               </p>
+
+              {/* Features */}
+              <ul className="space-y-2">
+                {service.features.map((feature, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-sm text-muted-foreground"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
