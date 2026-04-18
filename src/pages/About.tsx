@@ -23,31 +23,31 @@ const values = [
     icon: Heart,
     title: "Client-First Mindset",
     description:
-      "Your success is mine. I listen deeply, communicate honestly, and treat every project as if it were my own.",
+      "Your success is ours. We listen deeply, communicate honestly, and treat every project as if it were our own.",
   },
   {
     icon: ShieldCheck,
     title: "Built on Trust",
     description:
-      "Transparent pricing, honest timelines, and zero hidden surprises. I say what I'll do — and I do it.",
+      "Transparent pricing, honest timelines, and zero hidden surprises. We say what we'll do — and we do it.",
   },
   {
     icon: Lightbulb,
     title: "Always Learning",
     description:
-      "Tech moves fast. I stay sharp on the latest tools, frameworks, and best practices so your product never falls behind.",
+      "Tech moves fast. We stay sharp on the latest tools, frameworks, and best practices so your product never falls behind.",
   },
   {
     icon: Zap,
     title: "Ship with Quality",
     description:
-      "Speed matters — but never at the expense of stability, security, or polish. I move fast and build right.",
+      "Speed matters — but never at the expense of stability, security, or polish. We move fast and build right.",
   },
   {
     icon: HandshakeIcon,
     title: "Long-Term Partnership",
     description:
-      "Launch is just the beginning. I stick around to support, iterate, and grow alongside your business.",
+      "Launch is just the beginning. We stick around to support, iterate, and grow alongside your business.",
   },
   {
     icon: Sparkles,
