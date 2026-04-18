@@ -94,24 +94,19 @@ const About = () => {
           </div>
         </section>
 
-        {/* Stats */}
+        {/* Intro card */}
         <section className="container px-4 pb-20 md:pb-28">
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {stats.map((s) => {
-              const Icon = s.icon;
-              return (
-                <div
-                  key={s.label}
-                  className="p-6 rounded-2xl border border-border bg-card text-center hover:border-primary/40 transition-colors"
-                >
-                  <Icon className="w-6 h-6 text-primary mx-auto mb-3" />
-                  <div className="font-heading text-3xl md:text-4xl font-black text-foreground">
-                    {s.value}
-                  </div>
-                  <div className="text-xs md:text-sm text-muted-foreground mt-1">{s.label}</div>
-                </div>
-              );
-            })}
+          <div className="max-w-3xl mx-auto p-8 md:p-10 rounded-2xl border border-border bg-card text-center">
+            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-5">
+              <User className="w-8 h-8 text-primary-foreground" />
+            </div>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-3">
+              One developer. Full focus on your product.
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              No bloated agency overhead. No account managers. Just direct collaboration with the
+              person actually designing, coding, and shipping your project.
+            </p>
           </div>
         </section>
 
@@ -120,10 +115,10 @@ const About = () => {
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
               <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-primary/10 text-primary font-bold">
-                OUR STORY
+                MY STORY
               </span>
               <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6 leading-tight">
-                Built by makers,
+                Built by a maker,
                 <br />
                 <span className="text-primary">for makers.</span>
               </h2>
@@ -133,13 +128,13 @@ const About = () => {
                   lost in slow, overpriced, overcomplicated development cycles.
                 </p>
                 <p>
-                  So we built the studio we always wished existed: lean, fast, modern, and obsessed
-                  with quality. A team that treats your product like our own and ships work we're
-                  genuinely proud of.
+                  So I built the studio I always wished existed: lean, fast, modern, and obsessed
+                  with quality. One developer who treats your product like his own and ships work
+                  worth being proud of.
                 </p>
                 <p>
-                  Today, we partner with founders, startups, and established brands across the
-                  globe — turning ambitious ideas into web and mobile products that move people.
+                  Today, I partner with founders, startups, and established brands — turning
+                  ambitious ideas into web and mobile products that move people.
                 </p>
               </div>
             </div>
@@ -173,10 +168,10 @@ const About = () => {
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                 <Target className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-heading text-2xl font-bold text-foreground mb-3">Our Mission</h3>
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-3">My Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To make world-class web and mobile development accessible — helping ambitious teams
-                ship faster, scale smarter, and stand out in crowded markets.
+                To make world-class web and mobile development accessible — helping ambitious
+                founders ship faster, scale smarter, and stand out in crowded markets.
               </p>
             </div>
 
@@ -184,7 +179,7 @@ const About = () => {
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                 <Compass className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-heading text-2xl font-bold text-foreground mb-3">Our Vision</h3>
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-3">My Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
                 A world where great ideas aren't held back by slow development — where every founder
                 has a trusted partner to bring their vision to life with speed and craft.
@@ -198,10 +193,10 @@ const About = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-primary/10 text-primary font-bold">
-                WHAT WE STAND FOR
+                WHAT I STAND FOR
               </span>
               <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mt-4 mb-4">
-                Our Core Values
+                My Core Values
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 The principles that shape every project, every conversation, every line of code.
