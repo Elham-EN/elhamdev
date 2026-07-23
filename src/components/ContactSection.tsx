@@ -1,27 +1,6 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Clock, Send, Linkedin, Github, Instagram, Facebook } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Clock, Linkedin, Github, Instagram, Facebook } from "lucide-react";
 
 const ContactSection = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you within 24 hours.",
-    });
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   return (
     <section id="contact" className="relative overflow-hidden">
       {/* Diagonal Background */}
@@ -38,104 +17,94 @@ const ContactSection = () => {
         </svg>
       </div>
 
-      {/* Top Content */}
-      <div className="container px-4 py-20 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Column - Form */}
-            <div className="bg-card rounded-xl p-8 border border-border shadow-lg">
-              <h3 className="text-2xl font-bold mb-6 text-card-foreground">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Your Name
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="bg-background rounded-none"
-                  />
-                </div>
+      {/* Content */}
+      <div className="container px-4 py-24 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
+            Let's Work Together
+          </h2>
+          <p className="text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+            Have a project in mind? The best way to reach me is directly by email or phone. I typically respond within 24 hours.
+          </p>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="bg-background rounded-none"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Project Details
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    className="bg-background resize-none rounded-none"
-                  />
-                </div>
-
-                <Button type="submit" className="w-full gap-2 rounded-none uppercase tracking-wide" size="lg">
-                  Send Message
-                  <Send className="w-4 h-4" />
-                </Button>
-              </form>
-            </div>
-
-            {/* Right Column - Info */}
-            <div className="flex flex-col justify-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground font-serif">
-                Let's Work Together
-              </h2>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                Do you have any questions or would you like to request a free quote for a website, 
-                logo, or anything else? Feel free to contact me, and I'll be happy to assist you.
-              </p>
-
-              {/* Contact Info */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <span className="text-foreground">hello@codehelm.com</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <span className="text-foreground">Available Worldwide (Remote)</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <span className="text-foreground">Response within 24 hours</span>
-                </div>
+          {/* Main Contact Channels */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <a
+              href="mailto:elham@codehelm.com.au"
+              className="group bg-card rounded-xl p-8 border border-border shadow-lg hover:border-primary/50 transition-colors"
+            >
+              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-6">
+                <Mail className="w-7 h-7 text-primary-foreground" />
               </div>
+              <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Email</h3>
+              <p className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                elham@codehelm.com.au
+              </p>
+            </a>
+
+            <a
+              href="tel:0470257110"
+              className="group bg-card rounded-xl p-8 border border-border shadow-lg hover:border-primary/50 transition-colors"
+            >
+              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-6">
+                <Phone className="w-7 h-7 text-primary-foreground" />
+              </div>
+              <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Mobile</h3>
+              <p className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                0470 257 110
+              </p>
+            </a>
+          </div>
+
+          {/* Secondary Info */}
+          <div className="flex flex-wrap justify-center gap-6 mb-12 text-muted-foreground">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <span>Available Worldwide (Remote)</span>
             </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <Clock className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <span>Response within 24 hours</span>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex justify-center gap-4">
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>
-
     </section>
   );
 };
