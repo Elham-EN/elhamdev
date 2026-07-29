@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 
 declare global {
@@ -11,8 +10,6 @@ declare global {
 }
 
 const ChatWidget = () => {
-  const [isOpen] = useState(false);
-
   const handleOpenChat = () => {
     if (window.Tawk_API?.maximize) {
       window.Tawk_API.maximize();
@@ -24,9 +21,7 @@ const ChatWidget = () => {
   return (
     <button
       onClick={handleOpenChat}
-      className={`fixed bottom-6 right-6 z-[110] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group ${
-        isOpen ? "scale-0 opacity-0" : "scale-100 opacity-100"
-      }`}
+      className="fixed bottom-6 right-6 z-[110] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group scale-100 opacity-100"
       aria-label="Open live chat"
     >
       <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
